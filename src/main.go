@@ -5,7 +5,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/manolors/gorm-crud/config"
+	"github.com/manolors/go-mariadb-sample/config"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"

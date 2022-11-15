@@ -8,6 +8,7 @@ import (
 
 type Reserva struct {
 	gorm.Model
+	Nombre    string
 	Fecha     time.Time
 	ClienteID int
 	Cliente   Cliente

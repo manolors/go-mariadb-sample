@@ -1,10 +1,10 @@
-//Config/Database.go
+// Config/Database.go
 package config
 
 import (
 	"fmt"
 
-	"github.com/manolors/gorm-crud/constants"
+	"github.com/manolors/go-mariadb-sample/constants"
 
 	"github.com/jinzhu/gorm"
 )
@@ -31,7 +31,7 @@ func BuildDBConfig() *DBConfig {
 	return &dbConfig
 }
 func DbURL(dbConfig *DBConfig) string {
-	return fmt.Sprintf(
+	a := fmt.Sprintf(
 		"%s:%s@tcp(%s:%d)/%s?charset=utf8mb4&parseTime=True&loc=Local",
 		dbConfig.User,
 		dbConfig.Password,
@@ -39,4 +39,6 @@ func DbURL(dbConfig *DBConfig) string {
 		dbConfig.Port,
 		dbConfig.DBName,
 	)
+	fmt.Println("Conectando a", a)
+	return a
 }
