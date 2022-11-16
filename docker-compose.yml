@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   mariadb:
-    image: "mariadb:10.5"
+    image: "mariadb:10.9"
     environment:
       - MYSQL_ROOT_PASSWORD=${ROOT_PASSWORD}
       - MYSQL_DATABASE=${DATABASE_NAME}
