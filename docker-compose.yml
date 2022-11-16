@@ -10,7 +10,7 @@ services:
       - db:/var/lib/mysql
       - ./db/sakila.sql:/docker-entrypoint-initdb.d/setup.sql
     ports:
-      - 3306:3306
+      - ${DATABASE_PORT}:${DATABASE_PORT}
   app:
     build:
       context: ./src
@@ -25,7 +25,7 @@ services:
     volumes:
       - ./src/:/app
     environment:
-      - WAIT_HOSTS=mariadb:3306
+      - WAIT_HOSTS=mariadb:${DATABASE_PORT}
       - WAIT_BEFORE=5
       - WAIT_HOSTS_TIMEOUT=30
       - WAIT_SLEEP_INTERVAL=5
@@ -35,5 +35,6 @@ services:
       - DATABASE_PASSWORD=${ROOT_PASSWORD}
       - DATABASE_NAME=${DATABASE_NAME}
       - DATABASE_PORT=${DATABASE_PORT}
+
 volumes:
   db: {}
